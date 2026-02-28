@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabitha Mutura - Virtual Assistant | Project Management | Customer Service Expert</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6b4c9a;
+            --secondary: #ff6b9d;
+            --accent: #ffd700;
+            --dark: #1a1a2e;
+            --light: #f5f1ff;
+            --text: #2d2d44;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f5f1ff 0%, #fff0f5 50%, #f0f4ff 100%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Animated background elements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            right: -10%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(107, 76, 154, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -20%;
+            left: -5%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 107, 157, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite reverse;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(30px) translateX(20px); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            margin: 0 1.5rem;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 3rem;
+            text-align: center;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 107, 157, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, #ff1493 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-style: italic;
+            letter-spacing: -2px;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            font-weight: bold;
+            margin-bottom: 1rem;
+            animation: slideInUp 0.8s ease-out 0.1s both;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 700px;
+            margin-bottom: 2rem;
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
+        .role-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            animation: slideInUp 0.8s ease-out 0.3s both;
+        }
+
+        .role-badge {
+            background: linear-gradient(135deg, rgba(107, 76, 154, 0.1) 0%, rgba(255, 107, 157, 0.1) 100%);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(107, 76, 154, 0.2);
+            animation: slideInUp 0.8s ease-out 0.4s both;
+            margin-right: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(107, 76, 154, 0.3);
+        }
+
+        .secondary-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: slideInUp 0.8s ease-out 0.4s both;
+        }
+
+        .secondary-button:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem;
+        }
+
+        /* Section Styling */
+        section {
+            margin: 4rem 0;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            right: -50%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(107, 76, 154, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .role-section {
+            background: linear-gradient(135deg, rgba(107, 76, 154, 0.05) 0%, rgba(255, 107, 157, 0.05) 100%);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .role-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Experience Cards */
+        .experience-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(245, 241, 255, 0.5) 100%);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--secondary);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.15);
+        }
+
+        .experience-card .role {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .experience-card .company {
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .experience-card li {
+            padding-left: 1.8rem;
+            margin-bottom: 0.7rem;
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .experience-card li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #fff 0%, #f5f1ff 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .skill-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(255, 107, 157, 0.2);
+        }
+
+        .skill-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.15rem;
+        }
+
+        .skill-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .skill-category {
+            margin-bottom: 2.5rem;
+        }
+
+        .skill-category-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-category-title::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 50%;
+            margin-right: 0.8rem;
+        }
+
+        .skill-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, rgba(107, 76, 154, 0.08) 0%, rgba(255, 107, 157, 0.08) 100%);
+            padding: 1rem 1.3rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text);
+            border-left: 3px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: linear-gradient(135deg, rgba(107, 76, 154, 0.15) 0%, rgba(255, 107, 157, 0.15) 100%);
+            transform: translateX(5px);
+        }
+
+        /* Certifications */
+        .cert-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 0.9rem 1.8rem;
+            border-radius: 50px;
+            margin: 0.7rem;
+            font-size: 0.95rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .cert-badge:hover {
+            transform: scale(1.08) translateY(-3px);
+            box-shadow: 0 10px 25px rgba(107, 76, 154, 0.3);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: rgba(107, 76, 154, 0.05);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 107, 157, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .contact-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            word-break: break-word;
+        }
+
+        .contact-item a:hover {
+            color: var(--secondary);
+        }
+
+        /* Chatbot Styles */
+        .chat-bubble {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(107, 76, 154, 0.3);
+            z-index: 999;
+            transition: all 0.3s ease;
+            font-size: 1.8rem;
+        }
+
+        .chat-bubble:hover {
+            transform: scale(1.15);
+            box-shadow: 0 15px 40px rgba(107, 76, 154, 0.4);
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 400px;
+            height: 650px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            display: none;
+            flex-direction: column;
+            z-index: 999;
+            overflow: hidden;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-header h3 {
+            margin: 0;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .close-chat {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.5rem;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-chat:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            display: flex;
+            margin-bottom: 1rem;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message-text {
+            max-width: 80%;
+            padding: 1rem 1.3rem;
+            border-radius: 15px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .message.bot .message-text {
+            background: #f0f4ff;
+            color: var(--text);
+            border-bottom-left-radius: 4px;
+        }
+
+        .message.user .message-text {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 1.2rem;
+            border-top: 1px solid #eee;
+            gap: 0.8rem;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            border: 1.5px solid #ddd;
+            border-radius: 25px;
+            padding: 0.9rem 1.3rem;
+            font-size: 0.95rem;
+            font-family: 'Georgia', serif;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-input input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(107, 76, 154, 0.1);
+        }
+
+        .chatbot-input button {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .chatbot-input button:hover {
+            transform: scale(1.08);
+        }
+
+        .highlights {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 107, 157, 0.1) 100%);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .highlight-item {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .highlight-item strong {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            .role-badges {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .role-badge {
+                width: 100%;
+            }
+
+            .cta-button, .secondary-button {
+                display: block;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .chatbot-container {
+                width: 100%;
+                height: 100%;
+                max-width: 400px;
+                max-height: 650px;
+                bottom: 0;
+                right: 0;
+                border-radius: 0;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Tabitha</div>
+        <div>
+            <a href="#about">About</a>
+            <a href="#roles">Expertise</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#certifications">Credentials</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Tabitha Mutura</h1>
+        <div class="hero-subtitle">Your Trusted Business Operations Partner</div>
+        <p>Expert Virtual Assistant | Project Management Specialist | Customer Service Professional</p>
+        <div class="role-badges">
+            <span class="role-badge">💼 Virtual Assistant</span>
+            <span class="role-badge">📊 Project Management</span>
+            <span class="role-badge">💬 Customer Service</span>
+        </div>
+        <a href="#contact" class="cta-button">Hire Me Today</a>
+        <a href="#experience" class="secondary-button">View My Work</a>
+    </section>
+
+    <div class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p style="font-size: 1.1rem; color: #555; margin-bottom: 1.5rem;">
+                I'm a results-driven professional with 5+ years of experience managing diverse administrative, project management, and customer-facing responsibilities. I specialize in streamlining operations, improving efficiency, and delivering exceptional service across multiple business functions.
+            </p>
+            <p style="font-size: 1rem; color: #666; margin-bottom: 1.5rem;">
+                My expertise spans managing high-volume workflows, coordinating cross-functional teams, handling client interactions, and implementing process improvements that drive measurable business results. I'm detail-oriented, proactive, and committed to exceeding expectations in every role.
+            </p>
+            
+            <div class="highlights">
+                <div class="highlight-item">✨ <strong>5+ Years</strong> of professional administrative and operational experience</div>
+                <div class="highlight-item">✨ <strong>25+ Hours Per Week</strong> of productive, high-accuracy work across multiple concurrent tasks</div>
+                <div class="highlight-item">✨ <strong>30% Efficiency Improvement</strong> through workflow automation and process optimization</div>
+                <div class="highlight-item">✨ <strong>Multi-Role Expertise:</strong> Virtual Assistant, Project Manager, Customer Service specialist</div>
+                <div class="highlight-item">✨ <strong>Remote-Ready:</strong> Fully equipped to work independently in distributed environments with excellent time management</div>
+            </div>
+        </section>
+
+        <!-- Role-Specific Expertise -->
+        <section id="roles">
+            <h2>My Core Expertise</h2>
+
+            <div class="role-section">
+                <div class="role-title">💼 Virtual Assistant Services</div>
+                <p style="margin-bottom: 1rem;">I provide comprehensive administrative support including:</p>
+                <ul style="margin-left: 2rem; color: #666;">
+                    <li>Email management and correspondence</li>
+                    <li>Calendar scheduling and meeting coordination</li>
+                    <li>Document preparation and data entry</li>
+                    <li>Customer communication and inquiry handling</li>
+                    <li>Research and information compilation</li>
+                    <li>CRM data management and updating</li>
+                    <li>Invoice processing and basic accounting support</li>
+                    <li>Social media management and content scheduling</li>
+                </ul>
+            </div>
+
+            <div class="role-section">
+                <div class="role-title">📊 Project Management Assistant</div>
+                <p style="margin-bottom: 1rem;">I excel at supporting project teams with:</p>
+                <ul style="margin-left: 2rem; color: #666;">
+                    <li>Project planning and timeline development</li>
+                    <li>Team coordination and communication</li>
+                    <li>Status tracking and progress reporting</li>
+                    <li>Resource allocation and task assignment</li>
+                    <li>Meeting facilitation and documentation</li>
+                    <li>Dashboard creation and performance analytics</li>
+                    <li>Risk identification and mitigation planning</li>
+                    <li>Deadline management and deliverable tracking</li>
+                </ul>
+            </div>
+
+            <div class="role-section">
+                <div class="role-title">💬 Customer Service Excellence</div>
+                <p style="margin-bottom: 1rem;">I deliver outstanding customer support through:</p>
+                <ul style="margin-left: 2rem; color: #666;">
+                    <li>Professional and empathetic client communication</li>
+                    <li>Timely response to inquiries and issues</li>
+                    <li>Ticket management and resolution tracking</li>
+                    <li>Customer data analysis and insights</li>
+                    <li>Service quality assurance and feedback implementation</li>
+                    <li>Multi-channel support (email, chat, phone)</li>
+                    <li>Complaint resolution and follow-up</li>
+                    <li>Customer relationship building</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Professional Experience</h2>
+
+            <div class="experience-card">
+                <div class="role">AI Evaluation Analyst / AI Data Specialist</div>
+                <div class="company">RWS – TrainAI Projects | Remote | Contract</div>
+                <p style="margin-bottom: 1rem; color: #666;"><strong>Key Achievements:</strong></p>
+                <ul>
+                    <li>Managed 500+ weekly evaluations of AI outputs with 98%+ accuracy rating</li>
+                    <li>Consistently met tight turnaround deadlines while maintaining quality standards</li>
+                    <li>Reviewed and evaluated AI-generated outputs for accuracy, relevance, safety, tone, and consistency</li>
+                    <li>Applied predefined evaluation frameworks and scoring rubrics to ensure standardized quality assessment</li>
+                    <li>Flagged edge cases, ambiguous prompts, and recurring failure patterns for model refinement</li>
+                    <li>Documented findings clearly and submitted actionable feedback to data scientists and QA teams</li>
+                    <li>Contributed to testing cycles and benchmarking initiatives to measure model improvement</li>
+                    <li>Trained and mentored new team members on evaluation standards</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="role">Expert Trainer (AI Projects)</div>
+                <div class="company">Micro 1 | Remote</div>
+                <p style="margin-bottom: 1rem; color: #666;"><strong>Key Achievements:</strong></p>
+                <ul>
+                    <li>Trained 20+ contributors on AI evaluation standards and quality frameworks</li>
+                    <li>Improved team accuracy rates by 25% through targeted feedback and guidance</li>
+                    <li>Trained and onboarded contributors on AI evaluation standards, annotation guidelines, and quality expectations</li>
+                    <li>Reviewed trainee outputs and provided structured, rubric-based feedback to improve accuracy</li>
+                    <li>Identified common error patterns and collaborated with project leads to refine processes</li>
+                    <li>Supported quality assurance initiatives by ensuring alignment with model testing criteria</li>
+                    <li>Helped maintain consistency and reliability across distributed AI evaluation teams</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="role">Virtual Assistant</div>
+                <div class="company">Creative Core Agency | Remote</div>
+                <p style="margin-bottom: 1rem; color: #666;"><strong>Key Achievements:</strong></p>
+                <ul>
+                    <li>Handled 25+ high-volume client interactions per hour with exceptional accuracy</li>
+                    <li>Achieved 30% efficiency improvement through Zapier workflow automation</li>
+                    <li>Managed structured documentation of client interactions, mirroring dataset review and classification workflows</li>
+                    <li>Applied scripts and standardized procedures across all communications</li>
+                    <li>Improved reporting efficiency by 30% through workflow automation and process optimization</li>
+                    <li>Maintained accurate, analyzable records suitable for performance tracking and analysis</li>
+                    <li>Supported multiple clients simultaneously with strong time management</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="role">Project Management Assistant</div>
+                <div class="company">Moko Home and Living | Nairobi, Kenya</div>
+                <p style="margin-bottom: 1rem; color: #666;"><strong>Key Achievements:</strong></p>
+                <ul>
+                    <li>Managed project dashboards for 15+ concurrent projects with 100% data accuracy</li>
+                    <li>Generated weekly analytical reports highlighting project status and KPIs</li>
+                    <li>Maintained structured project dashboards and ensured CRM data integrity</li>
+                    <li>Generated analytical progress reports based on structured operational data</li>
+                    <li>Supported workflow optimization through ClickUp and Monday.com tracking systems</li>
+                    <li>Coordinated between teams to ensure alignment on project milestones</li>
+                    <li>Implemented process improvements that reduced manual reporting time by 40%</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="role">Freelance Virtual Assistant</div>
+                <div class="company">Remote</div>
+                <p style="margin-bottom: 1rem; color: #666;"><strong>Key Achievements:</strong></p>
+                <ul>
+                    <li>Conducted comprehensive research and data compilation for multiple clients</li>
+                    <li>Maintained organized datasets in CRM systems for reporting and analysis</li>
+                    <li>Followed detailed guidelines to ensure consistency across all client communications</li>
+                    <li>Managed multiple projects simultaneously with strong organizational skills</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Professional Skills & Tools</h2>
+
+            <div class="skill-category">
+                <div class="skill-category-title">Virtual Assistant & Administrative Skills</div>
+                <div class="skill-list">
+                    <div class="skill-item">Email Management</div>
+                    <div class="skill-item">Calendar & Meeting Scheduling</div>
+                    <div class="skill-item">Document Preparation</div>
+                    <div class="skill-item">Data Entry & Accuracy</div>
+                    <div class="skill-item">Research & Analysis</div>
+                    <div class="skill-item">Customer Communication</div>
+                    <div class="skill-item">CRM Management</div>
+                    <div class="skill-item">Invoice Processing</div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <div class="skill-category-title">Project Management Skills</div>
+                <div class="skill-list">
+                    <div class="skill-item">Project Planning</div>
+                    <div class="skill-item">Timeline Management</div>
+                    <div class="skill-item">Team Coordination</div>
+                    <div class="skill-item">Status Reporting</div>
+                    <div class="skill-item">Dashboard Creation</div>
+                    <div class="skill-item">Resource Allocation</div>
+                    <div class="skill-item">Risk Management</div>
+                    <div class="skill-item">Stakeholder Communication</div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <div class="skill-category-title">Customer Service & Support</div>
+                <div class="skill-list">
+                    <div class="skill-item">Client Communication</div>
+                    <div class="skill-item">Ticket Management</div>
+                    <div class="skill-item">Issue Resolution</div>
+                    <div class="skill-item">Response Quality</div>
+                    <div class="skill-item">Multi-channel Support</div>
+                    <div class="skill-item">Customer Relationship Building</div>
+                    <div class="skill-item">Feedback Implementation</div>
+                    <div class="skill-item">Service Improvement</div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <div class="skill-category-title">Software & Tools Proficiency</div>
+                <div class="skill-list">
+                    <div class="skill-item">Google Workspace (Docs, Sheets, Drive)</div>
+                    <div class="skill-item">Microsoft Office (Word, Excel, Outlook)</div>
+                    <div class="skill-item">Salesforce CRM</div>
+                    <div class="skill-item">HubSpot</div>
+                    <div class="skill-item">Zoho CRM</div>
+                    <div class="skill-item">Zendesk</div>
+                    <div class="skill-item">Asana</div>
+                    <div class="skill-item">Trello</div>
+                    <div class="skill-item">ClickUp</div>
+                    <div class="skill-item">Monday.com</div>
+                    <div class="skill-item">Zapier Automation</div>
+                    <div class="skill-item">Slack</div>
+                    <div class="skill-item">Notion</div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <div class="skill-category-title">Professional Qualities</div>
+                <div class="skill-list">
+                    <div class="skill-item">Attention to Detail</div>
+                    <div class="skill-item">Time Management</div>
+                    <div class="skill-item">Organizational Skills</div>
+                    <div class="skill-item">Problem Solving</div>
+                    <div class="skill-item">Communication</div>
+                    <div class="skill-item">Reliability</div>
+                    <div class="skill-item">Adaptability</div>
+                    <div class="skill-item">Proactivity</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications">
+            <h2>Certifications & Professional Development</h2>
+            <div style="margin-bottom: 2.5rem;">
+                <h3 style="margin-top: 0;">Security & Compliance</h3>
+                <div>
+                    <span class="cert-badge">🔐 ISC2 Certified in Cybersecurity (CC)</span>
+                    <span class="cert-badge">🛡️ Cybersecurity Fellowship (Tech4Dev)</span>
+                </div>
+            </div>
+            <div style="margin-bottom: 2.5rem;">
+                <h3>Administrative & Business Training</h3>
+                <div>
+                    <span class="cert-badge">💼 Virtual Assistant Training Program – ALX</span>
+                </div>
+            </div>
+            <div>
+                <h3>Education</h3>
+                <p style="font-size: 1.05rem; margin-bottom: 0.5rem;"><strong>Bachelor of Science in Food Science and Technology</strong></p>
+                <p style="color: #888;">Dedan Kimathi University of Technology</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Let's Connect & Work Together</h2>
+            <p style="font-size: 1.05rem; margin-bottom: 2rem; color: #666;">
+                Ready to bring efficiency, professionalism, and reliability to your business? I'm available for Virtual Assistant, Project Management, and Customer Service roles. Let's discuss how I can contribute to your team's success.
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>📧 Email</h4>
+                    <a href="mailto:tabithawangari095@gmail.com">tabithawangari095@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <h4>📱 Phone / WhatsApp</h4>
+                    <a href="tel:+254718356145">+254 718 356 145</a>
+                </div>
+                <div class="contact-item">
+                    <h4>🎨 Portfolio & CV</h4>
+                    <a href="https://tabitha-virtual-assistant.my.canva.site" target="_blank">View Full Portfolio</a>
+                </div>
+                <div class="contact-item">
+                    <h4>⏰ Availability</h4>
+                    <p style="color: #666;">Full-Time / Part-Time / Contract</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="chat-bubble" onclick="toggleChat()">💬</div>
+
+    <div class="chatbot-container" id="chatbot">
+        <div class="chatbot-header">
+            <h3>Chat with Tabitha</h3>
+            <button class="close-chat" onclick="toggleChat()">✕</button>
+        </div>
+        <div class="chatbot-messages" id="messages">
+            <div class="message bot">
+                <div class="message-text">Hi! 👋 I'm Tabitha's AI assistant. Ask me about my Virtual Assistant services, Project Management experience, Customer Service skills, or anything else about working with me!</div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="userInput" placeholder="Ask me anything..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">→</button>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced chatbot knowledge base
+        const tabithaBio = {
+            name: "Tabitha Mutura",
+            title: "Virtual Assistant | Project Management Specialist | Customer Service Professional",
+            email: "tabithawangari095@gmail.com",
+            phone: "+254 718 356 145",
+            location: "Nairobi, Kenya",
+            availability: "Full-time, Part-time, Contract"
+        };
+
+        // Comprehensive knowledge base
+        const knowledge = {
+            virtualAssistant: `I provide comprehensive Virtual Assistant services including email management, calendar scheduling, document preparation, customer communication, research, CRM management, invoice processing, and social media management. I can handle 25+ interactions per hour with exceptional accuracy and have proven experience managing multiple clients simultaneously.`,
+            
+            projectManagement: `I specialize in Project Management support with expertise in project planning, timeline development, team coordination, status reporting, dashboard creation, resource allocation, and deadline management. I've successfully managed 15+ concurrent projects with 100% data accuracy using tools like ClickUp and Monday.com.`,
+            
+            customerService: `I deliver outstanding customer service with strong communication skills, empathetic client interaction, multi-channel support capabilities, and proven issue resolution experience. I maintain professionalism while building lasting customer relationships and implementing feedback for continuous improvement.`,
+            
+            experience: `I have 5+ years of professional experience across Virtual Assistant (Creative Core Agency), Project Management (Moko Home and Living), AI Evaluation (RWS-TrainAI), and Training roles (Micro 1). Each role has equipped me with diverse skills applicable to your business needs.`,
+            
+            skills: `My core competencies include: Virtual Assistant skills (email, scheduling, data entry, research), Project Management (planning, coordination, reporting, dashboards), Customer Service (communication, ticket management, relationship building), and proficiency with tools like Google Workspace, Microsoft Office, CRM systems (Salesforce, HubSpot, Zoho, Zendesk), and project management tools (Asana, ClickUp, Monday.com).`,
+            
+            tools: `I'm proficient with Google Workspace, Microsoft Office, Salesforce, HubSpot, Zoho, Zendesk, Asana, Trello, ClickUp, Monday.com, Zapier, Slack, and Notion. I can quickly learn new tools and platforms as needed.`,
+            
+            achievements: `I improved workflow efficiency by 30% through automation, managed 500+ weekly evaluations with 98%+ accuracy, trained 20+ team members, handled 25+ client interactions per hour, maintained 100% dashboard accuracy across 15 projects, and improved team accuracy by 25%.`,
+            
+            certifications: `I hold an ISC2 Certification in Cybersecurity (CC), am pursuing a Cybersecurity Fellowship with Tech4Dev, and completed Virtual Assistant Training through ALX. I hold a Bachelor of Science in Food Science and Technology.`,
+            
+            rates: `I'm available for flexible arrangements including full-time employment, part-time roles, and contract work. Please reach out via email at tabithawangari095@gmail.com or call +254 718 356 145 to discuss rates and packages.`,
+            
+            contact: `You can reach me at tabithawangari095@gmail.com, call/WhatsApp +254 718 356 145, or visit my full portfolio at https://tabitha-virtual-assistant.my.canva.site. I'm available for immediate engagement.`,
+            
+            remote: `I'm fully equipped for remote work with reliable internet, professional setup, and proven ability to work independently in distributed environments. I excel at managing time zones and maintaining clear communication with teams across locations.`,
+            
+            qualities: `I'm detail-oriented, proactive, reliable, and adaptable. I prioritize accuracy, meet deadlines consistently, communicate professionally, and continuously seek ways to improve processes and deliver exceptional value.`
+        };
+
+        // Smart response matching
+        function generateResponse(userMessage) {
+            const msg = userMessage.toLowerCase();
+            
+            // Virtual Assistant queries
+            if (msg.includes('virtual') && msg.includes('assist')) {
+                return knowledge.virtualAssistant;
+            }
+            if (msg.includes('email') || msg.includes('calendar') || msg.includes('scheduling')) {
+                return knowledge.virtualAssistant;
+            }
+            
+            // Project Management queries
+            if (msg.includes('project') || msg.includes('management')) {
+                return knowledge.projectManagement;
+            }
+            if (msg.includes('dashboard') || msg.includes('planning') || msg.includes('coordination')) {
+                return knowledge.projectManagement;
+            }
+            
+            // Customer Service queries
+            if (msg.includes('customer') || msg.includes('service') || msg.includes('support')) {
+                return knowledge.customerService;
+            }
+            if (msg.includes('issue') || msg.includes('ticket') || msg.includes('resolution')) {
+                return knowledge.customerService;
+            }
+            
+            // Experience
+            if (msg.includes('experience') || msg.includes('work') || msg.includes('background')) {
+                return knowledge.experience;
+            }
+            
+            // Skills
+            if (msg.includes('skill') || msg.includes('expertise') || msg.includes('capable')) {
+                return knowledge.skills;
+            }
+            
+            // Tools
+            if (msg.includes('tool') || msg.includes('software') || msg.includes('platform')) {
+                return knowledge.tools;
+            }
+            
+            // Achievements
+            if (msg.includes('achievement') || msg.includes('accomplish') || msg.includes('success')) {
+                return knowledge.achievements;
+            }
+            
+            // Certifications
+            if (msg.includes('certif') || msg.includes('trained') || msg.includes('credential')) {
+                return knowledge.certifications;
+            }
+            
+            // Rates/Pricing
+            if (msg.includes('rate') || msg.includes('price') || msg.includes('cost') || msg.includes('how much')) {
+                return knowledge.rates;
+            }
+            
+            // Contact
+            if (msg.includes('contact') || msg.includes('email') || msg.includes('phone') || msg.includes('reach')) {
+                return knowledge.contact;
+            }
+            
+            // Remote work
+            if (msg.includes('remote') || msg.includes('location') || msg.includes('work from')) {
+                return knowledge.remote;
+            }
+            
+            // Qualities
+            if (msg.includes('personality') || msg.includes('quality') || msg.includes('strength')) {
+                return knowledge.qualities;
+            }
+            
+            // Greetings
+            if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey')) {
+                return "Hi! 👋 Welcome! I'm Tabitha's assistant. I can tell you about Virtual Assistant services, Project Management expertise, Customer Service capabilities, or anything else about working together. What would you like to know?";
+            }
+            
+            if (msg.includes('help') || msg.includes('what can')) {
+                return "I can help with questions about: Virtual Assistant services, Project Management expertise, Customer Service skills, experience and background, tools and software proficiency, achievements, certifications, rates, contact information, and more. What interests you?";
+            }
+            
+            // Default response
+            return `Great question! While I don't have specific information about that topic, feel free to ask about my Virtual Assistant services, Project Management expertise, Customer Service skills, experience, or certifications. You can also reach out directly at tabithawangari095@gmail.com or +254 718 356 145.`;
+        }
+
+        function toggleChat() {
+            const chatbot = document.getElementById('chatbot');
+            chatbot.style.display = chatbot.style.display === 'none' ? 'flex' : 'none';
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            
+            if (message === '') return;
+            
+            addMessage(message, 'user');
+            input.value = '';
+            
+            setTimeout(() => {
+                const response = generateResponse(message);
+                addMessage(response, 'bot');
+            }, 400);
+        }
+
+        function addMessage(text, sender) {
+            const messagesDiv = document.getElementById('messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            messageDiv.innerHTML = `<div class="message-text">${text}</div>`;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+    </script>
+</body>
+</html>
