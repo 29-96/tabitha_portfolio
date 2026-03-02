@@ -1,2 +1,2 @@
-# tabitha_portfolio
-My Professional Portfolio - Virtual Assistant, Project Manager, AI Data/Quality specialist, Expert AI trainer
+# My_portfolio
+Virtual Assistant With Workflow Automation Focus, , AI Data/Quality specialist, Expert AI trainer
