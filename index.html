@@ -440,6 +440,48 @@
             transform: translateX(5px);
         }
 
+        /* Projects */
+        .project-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project-list li {
+            padding: 15px;
+            margin: 12px 0;
+            border-left: 4px solid var(--secondary);
+            background: linear-gradient(135deg, rgba(107, 76, 154, 0.05) 0%, rgba(255, 107, 157, 0.05) 100%);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .project-list li:hover {
+            transform: translateX(8px);
+            box-shadow: 0 10px 25px rgba(255, 107, 157, 0.15);
+        }
+
+        .project-list a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-list a:hover {
+            color: var(--secondary);
+        }
+
+        .project-info {
+            color: #666;
+            font-size: 0.9rem;
+            margin-left: 1rem;
+        }
+
+        .project-info a {
+            font-size: 0.9rem;
+        }
+
         /* Certifications */
         .cert-badge {
             display: inline-block;
@@ -758,6 +800,7 @@
         <div>
             <a href="#about">About</a>
             <a href="#roles">Expertise</a>
+            <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
             <a href="#certifications">Credentials</a>
@@ -798,26 +841,6 @@
                 <div class="highlight-item">✨ <strong>Remote-Ready:</strong> Fully equipped to work independently in distributed environments with excellent time management</div>
             </div>
         </section>
-        
-    <section class="projects">
-    <h2>Projects</h2>
-    <ul class="project-list">
-        <li>
-            <a href="https://password-strength-checker.onrender.com" target="_blank">🔐 Password Strength Checker</a>
-            <span class="project-info"> | Python, Flask, Security | <a href="https://github.com/29-96/password-strength-checker" target="_blank">GitHub</a></span>
-        </li>
-        <li>
-            <a href="#" target="_blank">📊 Other Project</a>
-            <span class="project-info"> | Technology | <a href="#" target="_blank">GitHub</a></span>
-        </li>
-        <li>
-            <a href="#" target="_blank">🛡️ Another Project</a>
-            <span class="project-info"> | Technology | <a href="#" target="_blank">GitHub</a></span>
-        </li>
-    </ul>
-</section>    
-   
-</div>
 
         <!-- Role-Specific Expertise -->
         <section id="roles">
@@ -867,6 +890,21 @@
                     <li>Customer relationship building</li>
                 </ul>
             </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <ul class="project-list">
+                <li>
+                    <a href="https://password-strength-checker.onrender.com" target="_blank">🔐 Password Strength Checker</a>
+                    <span class="project-info">| Python, Flask, Security | <a href="https://github.com/29-96/password-strength-checker" target="_blank">GitHub</a></span>
+                </li>
+                <li>
+                    <a href="#" target="_blank">📊 More Projects Coming Soon</a>
+                    <span class="project-info">| Stay tuned for updates</span>
+                </li>
+            </ul>
         </section>
 
         <!-- Experience Section -->
